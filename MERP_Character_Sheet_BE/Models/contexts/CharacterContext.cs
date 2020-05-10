@@ -10,5 +10,10 @@ namespace MERP_Character_Sheet_BE.Models
         }
 
         public DbSet<Character> Characters { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Character>().HasKey(x => x.Id);
+        }
     }
 }

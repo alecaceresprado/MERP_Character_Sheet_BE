@@ -6,70 +6,45 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MERP_Character_Sheet_BE.Models;
+using Newtonsoft.Json;
 
 namespace MERP_Character_Sheet_BE.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class CharacterController : ControllerBase
     {
-        private readonly CharacterContext _context;
+        private readonly ICharacterService _characterService;
 
-        public CharacterController(CharacterContext context)
+        public CharacterController(ICharacterService characterService)
         {
-            _context = context;
+            _characterService = characterService;
         }
 
         // GET: api/Character
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Character>>> GetCharacters()
+        public IActionResult GetAll()
         {
-            return await _context.Characters.ToListAsync();
+            var result = _characterService.GetAll();
+
+            return Ok(result);
         }
 
         // GET: api/Character/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Character>> GetCharacter(long id)
+        public IActionResult GetCharacter(int id)
         {
-            var character = await _context.Characters.FindAsync(id);
+            var result = _characterService.Get(id);
 
-            if (character == null)
-            {
-                return NotFound();
-            }
-
-            return character;
+            return Ok(result);
         }
 
         // PUT: api/Character/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCharacter(long id, Character character)
+        public IActionResult PutCharacter(long id, Character character)
         {
-            if (id != character.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(character).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CharacterExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
             return NoContent();
         }
 
@@ -77,34 +52,22 @@ namespace MERP_Character_Sheet_BE.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Character>> PostCharacter(Character character)
+        public async Task<IActionResult> PostCharacter(Character character)
         {
-            _context.Characters.Add(character);
-            await _context.SaveChangesAsync();
+            var result = await _characterService.Create(character);
 
-            //return CreatedAtAction("GetCharacter", new { id = character.Id }, character);
-            return CreatedAtAction(nameof(GetCharacter), new { id = character.Id }, character);
+            return CreatedAtAction(
+                nameof(GetCharacter),
+                new { id = result.Id }, result);
         }
 
         // DELETE: api/Character/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Character>> DeleteCharacter(long id)
+        public async Task<ActionResult> DeleteCharacter(int id)
         {
-            var character = await _context.Characters.FindAsync(id);
-            if (character == null)
-            {
-                return NotFound();
-            }
+            var result = await _characterService.Delete(id);
 
-            _context.Characters.Remove(character);
-            await _context.SaveChangesAsync();
-
-            return character;
-        }
-
-        private bool CharacterExists(long id)
-        {
-            return _context.Characters.Any(e => e.Id == id);
+            return Ok(result);
         }
     }
 }
