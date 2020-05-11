@@ -24,10 +24,14 @@ namespace MERP_Character_Sheet_BE
         public void ConfigureServices(IServiceCollection services)
         {
             var database = Configuration["EntityFramework:DatabaseName"];
-            
+
             services.AddTransient<ICharacterService, CharactersService>();
             services.AddSingleton<ICharacterRepository, CharacterRepository>();
             services.AddDbContext<CharacterContext>(opt => opt.UseInMemoryDatabase(database));
+
+            services.AddTransient<IGameClassService, GameClassService>();
+            services.AddSingleton<IGameClassRepository, GameClassRepository>();
+            services.AddDbContext<GameClassContext>(opt => opt.UseInMemoryDatabase(database));
 
             services.AddControllers();
         }
