@@ -1,5 +1,4 @@
-﻿using System;
-namespace MERP_Character_Sheet_BE.Models
+﻿namespace MERP_Character_Sheet_BE.Models
 {
     public class GameClass
     {

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using MERP_Character_Sheet_BE.Models;
-using Newtonsoft.Json;
 
 // TODO: USE DTO to avoid sending un necesary IDs 
 namespace MERP_Character_Sheet_BE.Controllers

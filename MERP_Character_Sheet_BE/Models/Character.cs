@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace MERP_Character_Sheet_BE.Models
+﻿namespace MERP_Character_Sheet_BE.Models
 {
     public class Character
     {
