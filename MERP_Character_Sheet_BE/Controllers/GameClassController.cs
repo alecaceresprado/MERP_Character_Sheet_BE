@@ -30,7 +30,10 @@ namespace MERP_Character_Sheet_BE.Controllers
         public IActionResult GetClass(int id)
         {
             var result = _classService.Get(id);
-
+            if (result == null)
+            {
+                return NoContent();
+            }
             return Ok(result);
         }
 
@@ -53,13 +56,18 @@ namespace MERP_Character_Sheet_BE.Controllers
 
             return CreatedAtAction(
                 nameof(GetClass),
-                new { id = result.Id }, result);
+                new { id = result.Id }, (GameClassDTO)result);
         }
 
         // DELETE: api/Class/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteCharacter(long id)
         {
+            var found = _classService.Get(id);
+            if (found == null)
+            {
+                return NoContent();
+            }
             var result = await _classService.Delete(id);
 
             return Ok(result);

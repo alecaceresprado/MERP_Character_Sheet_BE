@@ -1,6 +1,6 @@
 ﻿using MERP_Character_Sheet_BE.Interfaces;
 using MERP_Character_Sheet_BE.Models;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MERP_Character_Sheet_BE.Services
@@ -32,12 +32,12 @@ namespace MERP_Character_Sheet_BE.Services
                 return null;
         }
 
-        public GameClass Get(long classId)
+        public GameClassDTO Get(long classId)
         {
             return _repository.Get(classId);
         }
 
-        public IOrderedQueryable<GameClass> GetAll()
+        public List<GameClassDTO> GetAll()
         {
             return _repository.GetAll();
         }

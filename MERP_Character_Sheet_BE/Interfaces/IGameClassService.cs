@@ -1,5 +1,5 @@
 ﻿using MERP_Character_Sheet_BE.Models;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MERP_Character_Sheet_BE
@@ -10,9 +10,9 @@ namespace MERP_Character_Sheet_BE
 
         Task<GameClass> Update(GameClass _class);
 
-        GameClass Get(long classId);
+        GameClassDTO Get(long classId);
 
-        IOrderedQueryable<GameClass> GetAll();
+        List<GameClassDTO> GetAll();
 
         Task<bool> Delete(long classId);
     }

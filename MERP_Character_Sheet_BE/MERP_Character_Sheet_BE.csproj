@@ -8,6 +8,7 @@
   <ItemGroup>
     <Folder Include="Models\contexts\" />
     <Folder Include="Controllers\" />
+    <Folder Include="parsers\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />

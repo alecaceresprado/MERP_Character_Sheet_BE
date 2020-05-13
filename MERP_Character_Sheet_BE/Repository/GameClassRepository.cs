@@ -2,6 +2,7 @@
 using MERP_Character_Sheet_BE.Models;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -34,7 +35,7 @@ namespace MERP_Character_Sheet_BE.Repository
         {
             var success = false;
 
-            var existingClass = Get(_class.Id);
+            var existingClass = GetWithIDs(_class.Id);
 
             if (existingClass != null)
             {
@@ -51,23 +52,42 @@ namespace MERP_Character_Sheet_BE.Repository
             return success;
         }
 
-        public GameClass Get(long classId)
+        public GameClassDTO Get(long classId)
+        {
+            var result = _dbContext.Classes
+                                .Where(x => x.Id == classId)
+                                .FirstOrDefault();
+            if(result == null)
+            {
+                return null;
+            }
+            return (GameClassDTO)result;
+        }
+
+        public GameClass GetWithIDs(long classId)
         {
             return _dbContext.Classes
                                 .Where(x => x.Id == classId)
                                 .FirstOrDefault();
         }
 
-        public IOrderedQueryable<GameClass> GetAll()
+        public List<GameClassDTO> GetAll()
         {
-            return _dbContext.Classes.OrderByDescending(x => x.Id);
+            var parsedList = new List<GameClassDTO>();
+            var unparsed = _dbContext.Classes.OrderByDescending(x => x.Id).ToList();
+            
+            unparsed.ForEach(delegate(GameClass raw){
+                parsedList.Add((GameClassDTO)raw);
+            });
+            
+            return parsedList;
         }
 
         public async Task<bool> Delete(long classId)
         {
             var success = false;
 
-            var existingClass = Get(classId);
+            var existingClass = GetWithIDs(classId);
 
             if (existingClass != null)
             {
