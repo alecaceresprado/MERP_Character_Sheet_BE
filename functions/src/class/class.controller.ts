@@ -25,9 +25,9 @@ classController.get("", (req, res) => {
 classController.get("/:className", (req, res) => {
   classService.getClass(req.params.className).then((response: ClassModel) => {
     if (!response) {
-      res
-        .status(404)
-        .send(`No class found under name: ${req.params.className}`);
+      res.status(404).json({
+        error: `No class found under name:  '${req.params.className}'.`,
+      });
     }
     res.json(response);
   });
@@ -37,12 +37,40 @@ classController.post("", schemaValidator, (req, res) => {
   classService.getClass(req.body.className).then((found: ClassModel) => {
     if (!found) {
       classService.postClass(req.body).then((response: ClassModel) => {
-        res.json(response);
+        res.status(201).json(response);
       });
     } else {
       res.status(422).json({
-        error: `There is another class created under the name: ${found.className}`,
+        error: `There is another class created under the name: '${found.className}'.`,
         class: found,
+      });
+    }
+  });
+});
+
+classController.put("/:className", schemaValidator, (req, res) => {
+  classService.getClassId(req.params.className).then((found: string) => {
+    if (found) {
+      classService.putClass(found, req.body).then((response: ClassModel) => {
+        res.json(response);
+      });
+    } else {
+      res.status(404).json({
+        error: `No class found under name:  '${req.params.className}'.`,
+      });
+    }
+  });
+});
+
+classController.delete("/:className", schemaValidator, (req, res) => {
+  classService.getClassId(req.params.className).then((found: string) => {
+    if (found) {
+      classService.deleteClass(found).then(() => {
+        res.json({ message: `Class '${req.params.className}' deleted.` });
+      });
+    } else {
+      res.status(404).json({
+        error: `No class found under name:  '${req.params.className}'.`,
       });
     }
   });
