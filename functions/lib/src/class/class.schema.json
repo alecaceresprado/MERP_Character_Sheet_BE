@@ -1,0 +1,495 @@
+{
+    "required": [
+        "className",
+        "skills"
+    ],
+    "properties": {
+        "className": {
+            "$id": "#/properties/className",
+            "type": "string"
+        },
+        "skills": {
+            "required": [
+                "armor",
+                "weapons",
+                "exterior",
+                "survival",
+                "magic",
+                "global"
+            ],
+            "properties": {
+                "armor": {
+                    "required": [
+                        "levelUpSkillPoints",
+                        "noArmor",
+                        "leather",
+                        "hardenedLeather",
+                        "chainMail",
+                        "plate"
+                    ],
+                    "properties": {
+                        "levelUpSkillPoints": {
+                            "$id": "#/properties/skills/properties/armor/properties/levelUpSkillPoints",
+                            "type": "integer"
+                        },
+                        "noArmor": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/armor/properties/noArmor/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/armor/properties/noArmor",
+                            "type": "object"
+                        },
+                        "leather": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/armor/properties/leather/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/armor/properties/leather",
+                            "type": "object"
+                        },
+                        "hardenedLeather": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/armor/properties/hardenedLeather/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/armor/properties/hardenedLeather",
+                            "type": "object"
+                        },
+                        "chainMail": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/armor/properties/chainMail/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/armor/properties/chainMail",
+                            "type": "object"
+                        },
+                        "plate": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/armor/properties/plate/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/armor/properties/plate",
+                            "type": "object"
+                        }
+                    },
+                    "$id": "#/properties/skills/properties/armor",
+                    "type": "object"
+                },
+                "weapons": {
+                    "required": [
+                        "levelUpSkillPoints",
+                        "edge",
+                        "blunt",
+                        "twoHanded",
+                        "throw",
+                        "aim",
+                        "dualWheilding",
+                        "pole"
+                    ],
+                    "properties": {
+                        "levelUpSkillPoints": {
+                            "$id": "#/properties/skills/properties/weapons/properties/levelUpSkillPoints",
+                            "type": "integer"
+                        },
+                        "edge": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/weapons/properties/edge/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/weapons/properties/edge",
+                            "type": "object"
+                        },
+                        "blunt": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/weapons/properties/blunt/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/weapons/properties/blunt",
+                            "type": "object"
+                        },
+                        "twoHanded": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/weapons/properties/twoHanded/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/weapons/properties/twoHanded",
+                            "type": "object"
+                        },
+                        "throw": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/weapons/properties/throw/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/weapons/properties/throw",
+                            "type": "object"
+                        },
+                        "aim": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/weapons/properties/aim/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/weapons/properties/aim",
+                            "type": "object"
+                        },
+                        "dualWheilding": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/weapons/properties/dualWheilding/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/weapons/properties/dualWheilding",
+                            "type": "object"
+                        },
+                        "pole": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/weapons/properties/pole/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/weapons/properties/pole",
+                            "type": "object"
+                        }
+                    },
+                    "$id": "#/properties/skills/properties/weapons",
+                    "type": "object"
+                },
+                "exterior": {
+                    "required": [
+                        "levelUpSkillPoints",
+                        "climb",
+                        "mount",
+                        "swim",
+                        "track"
+                    ],
+                    "properties": {
+                        "levelUpSkillPoints": {
+                            "$id": "#/properties/skills/properties/exterior/properties/levelUpSkillPoints",
+                            "type": "integer"
+                        },
+                        "climb": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/exterior/properties/climb/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/exterior/properties/climb",
+                            "type": "object"
+                        },
+                        "mount": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/exterior/properties/mount/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/exterior/properties/mount",
+                            "type": "object"
+                        },
+                        "swim": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/exterior/properties/swim/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/exterior/properties/swim",
+                            "type": "object"
+                        },
+                        "track": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/exterior/properties/track/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/exterior/properties/track",
+                            "type": "object"
+                        }
+                    },
+                    "$id": "#/properties/skills/properties/exterior",
+                    "type": "object"
+                },
+                "survival": {
+                    "required": [
+                        "levelUpSkillPoints",
+                        "ambush",
+                        "hide",
+                        "lockPick",
+                        "trapDismantle"
+                    ],
+                    "properties": {
+                        "levelUpSkillPoints": {
+                            "$id": "#/properties/skills/properties/survival/properties/levelUpSkillPoints",
+                            "type": "integer"
+                        },
+                        "ambush": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/survival/properties/ambush/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/survival/properties/ambush",
+                            "type": "object"
+                        },
+                        "hide": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/survival/properties/hide/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/survival/properties/hide",
+                            "type": "object"
+                        },
+                        "lockPick": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/survival/properties/lockPick/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/survival/properties/lockPick",
+                            "type": "object"
+                        },
+                        "trapDismantle": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/survival/properties/trapDismantle/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/survival/properties/trapDismantle",
+                            "type": "object"
+                        }
+                    },
+                    "$id": "#/properties/skills/properties/survival",
+                    "type": "object"
+                },
+                "magic": {
+                    "required": [
+                        "levelUpSkillPoints",
+                        "newMagicListChance",
+                        "readRunes",
+                        "useObject",
+                        "aimedSpells",
+                        "baseSpellBonus"
+                    ],
+                    "properties": {
+                        "levelUpSkillPoints": {
+                            "$id": "#/properties/skills/properties/magic/properties/levelUpSkillPoints",
+                            "type": "integer"
+                        },
+                        "newMagicListChance": {
+                            "$id": "#/properties/skills/properties/magic/properties/newMagicListChance",
+                            "type": "integer"
+                        },
+                        "readRunes": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/magic/properties/readRunes/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/magic/properties/readRunes",
+                            "type": "object"
+                        },
+                        "useObject": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/magic/properties/useObject/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/magic/properties/useObject",
+                            "type": "object"
+                        },
+                        "aimedSpells": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/magic/properties/aimedSpells/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/magic/properties/aimedSpells",
+                            "type": "object"
+                        },
+                        "baseSpellBonus": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/magic/properties/baseSpellBonus/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/magic/properties/baseSpellBonus",
+                            "type": "object"
+                        }
+                    },
+                    "$id": "#/properties/skills/properties/magic",
+                    "type": "object"
+                },
+                "global": {
+                    "required": [
+                        "sight",
+                        "health",
+                        "languages"
+                    ],
+                    "properties": {
+                        "sight": {
+                            "required": [
+                                "levelBonus"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/global/properties/sight/properties/levelBonus",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/global/properties/sight",
+                            "type": "object"
+                        },
+                        "health": {
+                            "required": [
+                                "levelBonus",
+                                "levelUpSkillPoints"
+                            ],
+                            "properties": {
+                                "levelBonus": {
+                                    "$id": "#/properties/skills/properties/global/properties/health/properties/levelBonus",
+                                    "type": "integer"
+                                },
+                                "levelUpSkillPoints": {
+                                    "$id": "#/properties/skills/properties/global/properties/health/properties/levelUpSkillPoints",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/global/properties/health",
+                            "type": "object"
+                        },
+                        "languages": {
+                            "required": [
+                                "levelUpSkillPoints"
+                            ],
+                            "properties": {
+                                "levelUpSkillPoints": {
+                                    "$id": "#/properties/skills/properties/global/properties/languages/properties/levelUpSkillPoints",
+                                    "type": "integer"
+                                }
+                            },
+                            "$id": "#/properties/skills/properties/global/properties/languages",
+                            "type": "object"
+                        }
+                    },
+                    "$id": "#/properties/skills/properties/global",
+                    "type": "object"
+                },
+                "secondary": {
+                    "required": [],
+                    "properties": {},
+                    "$id": "#/properties/skills/properties/secondary",
+                    "type": "object"
+                }
+            },
+            "$id": "#/properties/skills",
+            "type": "object"
+        }
+    },
+    "$id": "classSchema",
+    "type": "object"
+}
